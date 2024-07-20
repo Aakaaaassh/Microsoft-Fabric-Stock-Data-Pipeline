@@ -1,8 +1,46 @@
+## Architecture Diagram
+![Architecture](https://github.com/user-attachments/assets/e4b1154d-1b1f-4d64-84dd-8552f95b45be)
+
 # Microsoft Fabric Stock Market Pipeline
+
 
 ## Introduction
 
 This project involves fetching historical and daily stock data for the top 10 companies in India (by market cap) using the Alpha Vantage API. The data spans from January 1, 2020, to May 31, 2024. The goal is to extract specific columns (Date, Company, Open, Close, High, Low, Volume) and perform certain analyses. The project is divided into two main scripts: one for an initial historical data dump and another for daily updates.
+
+## Tech Stack
+
+### Data Extraction
+- **Alpha Vantage API**: Used to fetch historical and daily stock data for the top 10 companies in India.
+
+### Programming Languages
+- **Python**: Primary language used for scripting and data processing.
+
+### Data Processing
+- **Pandas**: Used for initial data manipulation and saving data to CSV files.
+- **Apache Spark**: Used for scalable data processing and transformation.
+- **PySpark**: Python API for Apache Spark, used to write Spark applications in Python.
+
+### Data Storage
+- **OneLake**: Unified data lake provided by Microsoft Fabric for data storage.
+- **CSV Files**: Intermediate storage format for raw data.
+- **Parquet Files**: Optimized columnar storage format used before creating Delta tables.
+- **Delta Lake**: Storage layer that brings reliability and performance to data lakes, used for efficient data management and querying.
+
+### Scheduling and Automation
+- **Cron Jobs**: Used to automate the daily data extraction and update process.
+
+### Data Querying and Optimization
+- **Synapse Data Engineering Module**: Used for data processing and querying within Microsoft Fabric.
+- **Partitioning**: Technique used to optimize data storage for faster read and write operations.
+- **Z-Ordering**: Optimization technique used to organize data within partitions for faster query performance.
+- **V-Ordering**: Further optimization technique to enhance data layout for improved performance.
+
+### Development and Collaboration
+- **Jupyter Notebooks**: Used for developing, testing, and running data processing scripts within Microsoft Fabric.
+
+### Visualization and Documentation
+- **Lucidchart**: Used to create architecture diagrams for visual representation of the project workflow.
 
 ## Requirements
 
@@ -91,3 +129,5 @@ The implementation successfully automates the extraction, transformation, and lo
 
 This project demonstrates a robust solution for automated stock data collection and analysis. By leveraging API integration, data engineering with PySpark, and scheduling, the process is streamlined and efficient. The indexing ensures that regular queries can be executed swiftly, providing valuable insights into stock price and volume variations.
 
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
